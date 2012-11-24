@@ -1,4 +1,8 @@
 OsmScotlandFrontend::Application.routes.draw do
+
+  match 'about' => 'pages#about'
+  match 'contact' => 'pages#contact'
+
   resources :pages
   resources :statistics
   # The priority is based upon order of creation:
