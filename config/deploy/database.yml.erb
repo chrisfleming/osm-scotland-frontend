@@ -1,0 +1,37 @@
+development:
+  adapter: postgis
+  encoding: unicode
+  database: bullfarmoast_development
+  pool: 5
+  username: bullfarmoast
+  password: bfo
+  su_username: chrisfl
+  su_password: 
+  schema_search_path: "public,postgis"
+  script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5/
+
+test:
+  adapter: postgis
+  encoding: unicode
+  database: bullfarmoast_test
+  pool: 5
+  username: bullfarmoast
+  password: bfo
+  su_username: chrisfl
+  su_password: 
+  schema_search_path: "public,postgis"
+  script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5/
+#  script_dir: /usr/local/pgsql/share/contrib/postgis-1.5/
+  
+production:
+  adapter: postgis
+  host: blur.coherentbits.co.uk
+  encoding: unicode
+  database: <%= application %>_production
+  pool: 5
+  username: bullfarmoast
+  password: <%= Capistrano::CLI.ui.ask("Enter Postgres bullfarmoast database password: ") %>
+  su_username: geo_rails_creator
+  su_password: <%= Capistrano::CLI.ui.ask("Enter Postgres creator database password: ") %>
+  schema_search_path: "public,postgis"
+  script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5/

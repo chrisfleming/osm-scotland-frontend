@@ -9,9 +9,6 @@
     });
 
 
-
-
-
     var modal = (function(){
         var method = {},
             $overlay,
@@ -83,7 +80,7 @@
 
 
 $(document).ready(function(){
-    modal.open({content: $("<h1>Welcome to OpenStreetMap Scotland</h1><p>Three columns of stuff to go in here.</p>"), width: "800px", height: "200px"});
+    modal.open({content: $('<h3>Welcome to OSM Scotland</h3><div class="container-fluid"><div class="row-fluid"><div class="span6">Column1</div><div class="span4">Column 2</div></div></div> ') });
 });
 
 

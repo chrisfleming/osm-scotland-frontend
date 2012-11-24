@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  group: MyString
+  ref: MyString
+  level: 1
+
+two:
+  name: MyString
+  group: MyString
+  ref: MyString
+  level: 1

@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class StatisticsController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
@@ -6,29 +6,28 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-     # format.json { render json: @pages }
+      format.json { render json: @pages }
     end
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    @stats = Statistics.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @page }
+      format.json { render json: @stats }
     end
   end
 
   # GET /pages/new
   # GET /pages/new.json
   def new
-    @page = Page.new
+    @stats = Statistics.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @page }
+      format.json { render json: @stats }
     end
   end
 
@@ -38,17 +37,15 @@ class PagesController < ApplicationController
   end
 
   # POST /pages
-  # POST /pages.json
+  # POST /stats.json
   def create
-    @page = Page.new(params[:page])
+    @stats = Statistics.new(params[:stats])
 
     respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
+      if @stats.save
+        format.json { render json: @stats, status: :created, location: @stats }
       else
-        format.html { render action: "new" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        format.json { render json: @stats.errors, status: :unprocessable_entity }
       end
     end
   end
