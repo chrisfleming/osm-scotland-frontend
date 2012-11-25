@@ -2,12 +2,43 @@
     <div id="map"></div> <!-- This one wants to be 100% height -->
 </div>
 
+<div id="modal" style="display:block;" >
+    <div class="container" id="content">
+    <div class="row-fluid">
+        <div class="span3">
+            <h3>What is OpenStreetMap?</h3>
+            <p><a href="http://openstreetmap.org">OpenStreetMap.org</a> is an international project established in 2004 with
+            the aim of creating a free world map. We collect data on roads, railways, rivers, forests, houses and more.</p>
+            
+        </div>
+        <div class="span3">
+            <h3>How to get involved?</h3>
+            <p>There are many different ways to contribute to OpenStreetMap, from reporting errors, to adding new buildings from
+            aerial images and the addition of roads and points of interest from a GPS capable device. Follow our guides to help 
+            you add and improve data.</p>
+            <p>Or join us at one of our regular meetups to find out more</p>
+        </div>
+        <div class="span3">
+            <h3>How can I use the data?</h3>
+            <p></p>
+        </div>
+        <div class="span3">
+            <img src="/assets/Scotland_logo_2012.png" />
+        </div>
+        </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <a class="close-modal" id="close" href="#">Show me the map</a>
+        </div>
+    
+    </div>
+    </div>
+</div>
 
 <script>
     $(document).ready(function() {
         initmap();
     });
-
 
     var modal = (function(){
         var method = {},
@@ -31,11 +62,11 @@
     
     // Open the modal
      method.open = function (settings) {
-            $content.empty().append(settings.content);
+          //  $content.empty().append(settings.content);
 
             $modal.css({
-                width: settings.width || 'auto', 
-                height: settings.height || 'auto'
+                width:  'auto', 
+                height: 'auto'
             });
 
         method.center();
@@ -43,7 +74,7 @@
         $(window).bind('resize.modal', method.center);
 
         $modal.show();
-        //$overlay.show();
+        $overlay.show();
     };
 
     // Close the modal
@@ -56,9 +87,9 @@
 
 
     $overlay = $('<div id="overlay"></div>');
-    $modal = $('<div id="modal"></div>');
-    $content = $('<div id="content"></div>');
-    $close = $('<a id="close" href="#">close</a>');
+    $modal = $("#modal");
+    $content = $('#content');
+    $close = $('#close');
 
 
     $modal.hide();
@@ -80,8 +111,9 @@
 
 
 $(document).ready(function(){
-    modal.open({content: $('<h3>Welcome to OSM Scotland</h3><div class="container-fluid"><div class="row-fluid"><div class="span6">Column1</div><div class="span4">Column 2</div></div></div> ') });
-});
+   // modal.open({content: $('<h3>Welcome to OSM Scotland</h3><div class="container-fluid"><div class="row-fluid"><div class="span6">Column1</div><div class="span4">Column 2</div></div></div> ') });
+   modal.open();
+   });
 
 
 
