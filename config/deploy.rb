@@ -47,8 +47,9 @@ end
 namespace :assets do
     task :precompile, :roles => :web do
         #run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:precompile:all"
-        run "cd #{current_path} && bundle exec rake assets:precompile RAILS_ENV=production -s"
+        run "cd #{release_path} && bundle exec rake assets:precompile RAILS_ENV=production -s"
     end
+    after "deploy:update_code", 'assets:precompile'
 
     task :cleanup, :roles => :web do
         run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:clean"
