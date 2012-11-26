@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OsmScotlandFrontend</title>
+    <title>OpenStreetMap Scotland <%=h yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,15 +18,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">OpenStreetMapScotland</a>
+          <a class="brand" href="/">OpenStreetMap Scotland</a>
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+                <li class="<%= 'active' if content_for(:title) == 'Home' %>"><a href="/">Home</a></li>
+                <li class="<%= 'active' if content_for(:title) == 'About' %>"><a href="/about">About</a></li>
+                <li class="<%= 'active' if content_for(:title) == 'Contact' %>"><a href="/contact">Contact</a></li>
               <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-              <li class="dropdown">
+              <!--<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -38,14 +38,13 @@
                   <li><a href="#">One more separated link</a></li>
                 </ul>
               </li>
-            </ul>
+          </ul> -->
           </div><!--/.nav-collapse -->
             </div>
         </div>
     </div>
-
-
-<%= yield %>
-
+    <%= '<div class="container">'.html_safe if !content_for?(:container)  %>  
+        <%= yield %>
+    <%= '</div>' if content_for?(:container)  %>  
 </body>
 </html>

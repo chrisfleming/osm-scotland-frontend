@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     #@pages = Page.all
-
+    $title = "Home"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pages }
