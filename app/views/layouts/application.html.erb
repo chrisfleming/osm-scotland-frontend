@@ -43,8 +43,8 @@
             </div>
         </div>
     </div>
-    <%= '<div class="container">'.html_safe if !content_for?(:container)  %>  
+    <div class="<%= content_for?(:container) ? yield(:container) : 'container' %>">
         <%= yield %>
-    <%= '</div>' if content_for?(:container)  %>  
+    </div>
 </body>
 </html>
